@@ -10,7 +10,7 @@ const port = process.env.PORT || 4000;
 const fastify = Fastify({
   logger: true,
   port: port, // Adjust the port number if necessary
-  timeout: 10000 // Increase timeout if needed
+  timeout: 5000 // Increase timeout if needed
 });
 
 // Register CORS plugin
