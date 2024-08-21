@@ -5,9 +5,11 @@ import cors from '@fastify/cors';
 
 dotenv.config();
 
+const port = process.env.PORT || 4000;
+
 const fastify = Fastify({
   logger: true,
-  port: 3000, // Adjust the port number if necessary
+  port: port, // Adjust the port number if necessary
   timeout: 10000 // Increase timeout if needed
 });
 
@@ -23,7 +25,9 @@ fastify.get('/', ()=>{
     return 'hello world'
 });
 
-fastify.listen({ port: 3000 }, (err, address) => {
+
+
+fastify.listen({ port: port }, (err, address) => {
   if (err) {
     fastify.log.error(err);
     process.exit(1);
