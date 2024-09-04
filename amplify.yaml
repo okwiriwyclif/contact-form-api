@@ -2,9 +2,6 @@ version: 1
 
 backend:
   phases:
-    preBuild:
-      commands:
-        - npm ci # Faster, clean install
     build:
       commands:
         - npm install

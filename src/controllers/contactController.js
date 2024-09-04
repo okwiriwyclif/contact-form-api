@@ -28,7 +28,7 @@ const contactController = async (request, reply) => {
     from: `"${name}" <${email}>`,
     to: receiver || process.env.CONTACT_RECEIVER,
     subject:  `Contact Form Submission - ${subject}` ,
-    html: emailTemplate(name,receiver, email, message,subject ,phoneNumber),
+    html: emailTemplate(name, email, message,subject ,phoneNumber),
   };
 
   try {
