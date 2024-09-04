@@ -15,7 +15,7 @@ backend:
     build:
       commands:
         - npm install
-        - npm run build --prefix src
+        - npm run start
   artifacts:
     # IMPORTANT: Add any other directories that contain server-side code
     baseDirectory: /src
