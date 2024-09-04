@@ -6,7 +6,9 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const contactController = async (request, reply) => {
-  const { name, email, message, subject , phoneNumber } = request.body;
+
+  //receiver email for receiving contact information when CONTACT_RECEIVER IS NOT SET  or for multipurpose endpoint
+  const { name,receiver, email, message, subject , phoneNumber } = request.body;
 
   if (!name || !email || !message) {
     return reply.status(400).send({ error: 'All fields are required.' });
@@ -24,9 +26,9 @@ const contactController = async (request, reply) => {
 
   const mailOptions = {
     from: `"${name}" <${email}>`,
-    to: process.env.CONTACT_RECEIVER,
+    to: receiver || process.env.CONTACT_RECEIVER,
     subject:  `Contact Form Submission - ${subject}` ,
-    html: emailTemplate(name, email, message,subject ,phoneNumber),
+    html: emailTemplate(name,receiver, email, message,subject ,phoneNumber),
   };
 
   try {
