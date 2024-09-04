@@ -1,0 +1,23 @@
+version: 1
+frontend:
+  phases:
+    build:
+      commands:
+        - npm ci
+        - npm run build
+  artifacts:
+    # IMPORTANT: Add any other directories that contain static assets
+    baseDirectory: /
+    files:
+      - "**/*"
+backend:
+  phases:
+    build:
+      commands:
+        - npm ci
+        - npm run build
+  artifacts:
+    # IMPORTANT: Add any other directories that contain server-side code
+    baseDirectory: /src
+    files:
+      - "**/*"
