@@ -3,7 +3,7 @@ frontend:
   phases:
     build:
       commands:
-        - npm ci
+        - npm install
         - npm run build
   artifacts:
     # IMPORTANT: Add any other directories that contain static assets
@@ -14,8 +14,8 @@ backend:
   phases:
     build:
       commands:
-        - npm ci
-        - npm run build
+        - npm install
+        - npm run build --prefix src
   artifacts:
     # IMPORTANT: Add any other directories that contain server-side code
     baseDirectory: /src
