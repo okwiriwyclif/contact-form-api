@@ -1,17 +1,10 @@
 version: 1
-frontend:
-  phases:
-    build:
-      commands:
-        - npm install
-        - npm run build
-  artifacts:
-    # IMPORTANT: Add any other directories that contain static assets
-    baseDirectory: /
-    files:
-      - "**/*"
+
 backend:
   phases:
+    preBuild:
+      commands:
+        - npm ci # Faster, clean install
     build:
       commands:
         - npm install
